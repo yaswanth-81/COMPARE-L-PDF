@@ -98,7 +98,23 @@ def apply_image_diff(doc1, doc2):
             gray1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
             gray2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
 
-            score, _ = ssim(gray1, gray2, full=True)
+            # Ensure same size
+            gray2 = cv2.resize(gray2, (gray1.shape[1], gray1.shape[0]))
+
+            h, w = gray1.shape
+            min_dim = min(h, w)
+
+            # Skip extremely tiny images
+            if min_dim < 3:
+                continue
+
+            # Dynamic win_size
+            win_size = min(7, min_dim)
+
+            if win_size % 2 == 0:
+                win_size -= 1
+
+            score, _ = ssim(gray1, gray2, full=True, win_size=win_size)
 
             print(f"Image {i+1} Similarity:", round(score, 4))
 
