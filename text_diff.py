@@ -50,7 +50,7 @@ def apply_text_diff(doc1, doc2):
             if tag == "equal":
                 continue
 
-            print(f"\n[{tag.upper()}] Page {page_num+1}")
+            # print(f"\n[{tag.upper()}] Page {page_num+1}")
 
             changed_words = words1[i1:i2]
 
@@ -64,7 +64,7 @@ def apply_text_diff(doc1, doc2):
 
                 highlight.update()
 
-                print(word["text"])
+                # print(word["text"])
 
     print("\nText diff applied.")
 

@@ -1,17 +1,29 @@
 import fitz
 import os
+import sys
 
 from text_diff import apply_text_diff
 from image_diff import apply_image_diff
 from cosmetic_diff import apply_cosmetic_diff
 
 
-PDF1 = "input/original.pdf"
-PDF2 = "input/modified.pdf"
 
-OUTPUT = "output/final_diff.pdf"
 
-os.makedirs("output", exist_ok=True)
+PDF1 = sys.argv[1]
+PDF2 = sys.argv[2]
+
+import os
+
+modified_name = os.path.splitext(
+    os.path.basename(PDF2)
+)[0]
+
+output_folder = os.path.dirname(PDF2)
+
+OUTPUT = os.path.join(
+    output_folder,
+    f"{modified_name}_diff.pdf"
+)
 
 
 def main():
@@ -65,6 +77,7 @@ def main():
     print("===================================")
 
     print(f"\nSaved Output:\n{OUTPUT}")
+    os.startfile(OUTPUT)
 
 
 if __name__ == "__main__":

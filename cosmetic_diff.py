@@ -124,12 +124,12 @@ def apply_cosmetic_diff(doc1, doc2):
                         width=1.5
                     )
 
-                    print("\nCosmetic Difference Found")
-                    print("Text :", text)
+                    # print("\nCosmetic Difference Found")
+                    # print("Text :", text)
                     print("Reasons :")
 
                     for r in reasons:
-                        print("-", r)
+                        pass
 
                     matched = True
                     break

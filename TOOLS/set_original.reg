@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.pdf\shell\SetAsOriginalPDF]
+@="Set as Original PDF"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.pdf\shell\SetAsOriginalPDF\command]
+@="\"Y:\\DRDO DAY 2 TASK\\PROJECT\\venv\\Scripts\\pythonw.exe\" \"Y:\\DRDO DAY 2 TASK\\PROJECT\\set_original.py\" \"%1\""
